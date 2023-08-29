@@ -39,7 +39,7 @@ Figure1 shows how PartyAs and Hedgers are communicate.
 
     **Figure 1: Different Type of Communication Of hedger and PartyA**
 
-Intents are heart of the system so we need to get familiar with the lifecycle of that before going any further. Figure 2 illustrates the lifecycle of an intent. The dashed arrows represent actions taken by the hedger, and the solid arrows represent actions taken by Party A or a third party. The circles indicate the state of the intent.
+Intents are the heart of the system so we need to get familiar with the lifecycle of an intent before going any further. Figure 2 illustrates the lifecycle of an intent. The dashed arrows represent actions taken by the hedger, and the solid arrows represent actions taken by Party A or a third party. The circles indicate the state of the intent.
 
 ![](./pngs/IntentTimeLine.drawio.png)
 
@@ -47,7 +47,8 @@ Intents are heart of the system so we need to get familiar with the lifecycle of
 
 ## 2. Send Intent (Send Quote)
 
-Let's start with where an intent gets born and see what is inside an intent. In the following table, we describe each field of a intent that is provided by a user during their request for a intent.
+Let's start with where an intent gets born and see what parameters are inside an intent (current SYMM version 0.8, Intents could be completly customized to offer other products like Options, Expiring Swaps etc). 
+In the following table, we describe each field of a intent that is provided by a user during their request for a intent.
 
 **Table 1: Structure of an Intent**
 
