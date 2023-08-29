@@ -11,13 +11,25 @@ From now on we will refer to PartyB or MarketMaker as "Hedger" as well as the So
 
 Each PartyB has the freedom to adopt their own hedging strategy, they can also choose to not hedge at all and be directionally exposed. However, certain rules are in place to ensure fairness within the system. In order to develop a customized MarketMaking approach, it is crucial to understand the timeline of Intents, the various requests made by PartyA, and the potential scenarios that may arise as a result of PartyA's actions. This document aims to focus on these aspects to assist you in building your own hedger.
 
-The main connection between PartyA and PartyB is based on onchain contracts. Consequently, it is essential for each hedger to be able to monitor requests made by PartyA on the blockchain. This can be achieved by utilizing a subgraph or event-listener. Moreover, it is imperative for the hedgers to respond to these requests via onchain calls to the SYMMIO core contracts.
+The main connection between PartyA and PartyB is based on onchain contracts. 
+Consequently, it is essential for each hedger to be able to monitor requests made by PartyA on the blockchain. 
+This can be achieved by utilizing a subgraph or event-listener. 
+Moreover, it is imperative for the hedgers to respond to these requests via onchain calls to the SYMMIO core contracts.
 
-Additional connections are established between PartyA and the hedgers through the front-end interface, Hedgers stream current quotes as Bid and Ask to frontends as well as funding, collateral requirements but also simple notifications to enhance UX can be streamed via websocket connections. 
-These connections aim to enhance the user experience by updating users on the status of their positions and intentions, as well as decreasing the time from request to execution by streaming quotes upfront. 
-For example, a hedger might notify the user when their request has been viewed, indicate the percentage of limit orders that have been filled, confirm if a transaction has been conducted in response to the user's request, or explain the reasons for rejecting the user's request. These types of connections are entirely optional. Each hedger may choose whether or not to provide this kind of information, and the platform itself does not validate the contents of such communications. 
+Additional connections are established between PartyA and the hedgers through the front-end interface, 
+Hedgers stream current quotes as Bid and Ask to frontends as well as funding, 
+collateral requirements but also simple notifications to enhance UX can be streamed via websocket connections. 
+These connections aim to enhance the user experience by updating users on the status of their positions and intentions, 
+as well as decreasing the time from request to execution by streaming quotes upfront. 
+For example, a hedger might notify the user when their request has been viewed, 
+indicate the percentage of limit orders that have been filled, 
+confirm if a transaction has been conducted in response to the user's request, 
+or explain the reasons for rejecting the user's request. 
+These types of connections are entirely optional. 
+Each hedger may choose whether or not to provide this kind of information, 
+and the platform itself does not validate the contents of such communications. 
 
-In our current frontend architecture streaming quotes on the other ahnd is not optional and every hedger should stream his offers upfront to a frontend in order to enable fast executions and CEX like UX.
+In our current frontend architecture streaming quotes on the other hand is not optional and every hedger should stream his offers upfront to a frontend in order to enable fast executions and CEX like UX.
 
 
 
