@@ -37,7 +37,7 @@ Figure1 shows how PartyAs and Hedgers are communicate.
 
 ![](./pngs/HedgerUserConnection.drawio.png)
 
-    **Figure 1: Different Type of Communication Of hedger and PartyA**
+    **Figure 1: Different types of communication of hedger (PartyB) and PartyA**
 
 Intents are the heart of the system so we need to get familiar with the lifecycle of an intent before going any further. Figure 2 illustrates the lifecycle of an intent. The dashed arrows represent actions taken by the hedger, and the solid arrows represent actions taken by Party A or a third party. The circles indicate the state of the intent.
 
