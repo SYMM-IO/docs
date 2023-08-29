@@ -2,16 +2,26 @@
 
 ## 1. Introduction
 
-The Symmetrical platform offers traders the opportunity to engage in permission-less trading on the blockchain. There are two types of traders on this platform:
+The Symmetrical platform offers traders the opportunity to engage in permission-less derivatives trading on the blockchain. There are two types of traders on this platform:
 
-1. PartyA: They provide requests for trades, also known as Intents.
-2. PartyB (hedgers, market makers): They respond to the requests made by PartyA.
+1. PartyA: They post requests for trades, also known as Intents.
+2. PartyB (hedgers, market makers): They respond to the requests made by PartyA, by claiming the Intent.
 
-Each PartyB has the freedom to adopt their own hedging strategy. However, certain rules are in place to ensure fairness within the system. In order to develop a customized hedging approach, it is crucial to understand the timeline of Intents, the various requests made by PartyA, and the potential scenarios that may arise as a result of PartyA's actions. This document aims to focus on these aspects to assist you in building your own hedger.
+From now on we will refer to PartyB or MarketMaker as "Hedger" as well as the Software to Market make as "hedging software", anything that offers quotes & accepts intents in the SYMMIO ecosystem is referred to "Hedger", and the strategy to Market make on SYMMIO is referred to as "hedging", even tho it is not required to be delta neutral at all times.
 
-The main connection between PartyA and PartyB is based on blockchain technology. Consequently, it is essential for each hedger to be able to monitor requests made by PartyA on the blockchain. This can be achieved by utilizing a subgraph or event-listener. Moreover, it is imperative for the hedgers to respond to these requests via the blockchain platform.
+Each PartyB has the freedom to adopt their own hedging strategy, they can also choose to not hedge at all and be directionally exposed. However, certain rules are in place to ensure fairness within the system. In order to develop a customized MarketMaking approach, it is crucial to understand the timeline of Intents, the various requests made by PartyA, and the potential scenarios that may arise as a result of PartyA's actions. This document aims to focus on these aspects to assist you in building your own hedger.
 
-Additional connections are established between PartyA and the hedgers through the front-end interface. These connections aim to enhance the user experience by updating users on the status of their positions and intentions. For example, a hedger might notify the user when their request has been viewed, indicate the percentage of limit orders that have been filled, confirm if a transaction has been conducted in response to the user's request, or explain the reasons for rejecting the user's request. These types of connections are entirely optional. Each hedger may choose whether or not to provide this kind of information, and the platform itself does not validate the contents of such communications. Figure1 shows how PartyAs and Hedgers are communicate.
+The main connection between PartyA and PartyB is based on onchain contracts. Consequently, it is essential for each hedger to be able to monitor requests made by PartyA on the blockchain. This can be achieved by utilizing a subgraph or event-listener. Moreover, it is imperative for the hedgers to respond to these requests via onchain calls to the SYMMIO core contracts.
+
+Additional connections are established between PartyA and the hedgers through the front-end interface, Hedgers stream current quotes as Bid and Ask to frontends as well as funding, collateral requirements but also simple notifications to enhance UX can be streamed via websocket connections. 
+These connections aim to enhance the user experience by updating users on the status of their positions and intentions, as well as decreasing the time from request to execution by streaming quotes upfront. 
+For example, a hedger might notify the user when their request has been viewed, indicate the percentage of limit orders that have been filled, confirm if a transaction has been conducted in response to the user's request, or explain the reasons for rejecting the user's request. These types of connections are entirely optional. Each hedger may choose whether or not to provide this kind of information, and the platform itself does not validate the contents of such communications. 
+
+In our current frontend architecture streaming quotes on the other ahnd is not optional and every hedger should stream his offers upfront to a frontend in order to enable fast executions and CEX like UX.
+
+
+
+Figure1 shows how PartyAs and Hedgers are communicate.
 
 ![](./pngs/HedgerUserConnection.drawio.png)
 
