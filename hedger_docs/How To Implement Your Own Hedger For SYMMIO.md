@@ -75,7 +75,10 @@ The diagram below provides a detailed visualization of the potential steps a hed
 
     **Figure 3 hedger Actions after SendQuoteLimit**
 
-Upon seeing a request made by PartyA, hedgers should first check if they are whitelisted, meaning they are allowed to act upon the request. After this, there's a race among hedgers to lock the Intent. The hedger who locks the intent first will have the opportunity to open the position. Thus, the hedger needs to review the intent to ensure it aligns with their policies. If it does, and they have sufficient allocated balance with the corresponding PartyA, they should immediately lock it by calling the "lockQuote" function. If they lack the necessary allocated balance, they should call the "AllocateAndLock" function to promptly address both concerns in a single transaction. Subsequently, the hedger can hedge the position with a broker and then use the "openPosition" function or simply wait until the price reaches the desired level before calling "openPosition"
+Upon seeing a request made by PartyA, hedgers should first check if they are whitelisted, meaning the user whitelisted the hedgers address as intent parameter & we are therefore allowed to act upon the request. After this, there's a race among hedgers to be the first to lock(claim) the Intent. The hedger who locks the intent first will have the opportunity to open the position. Thus, the hedger should to review the intent to ensure it aligns with their policies and is "interesting" enough to be opened, this is an additional security measure no onchain derivatives plattform in crypto can offer market makers. 
+If the intent is interesting and matches hedger policies, and they have sufficient allocated balance with the corresponding PartyA, they should immediately lock it by calling the "lockQuote" function. 
+
+If they lack the necessary allocated balance, they should call the "AllocateAndLock" function to promptly execute both actions in a single transaction. Subsequently, the hedger can hedge the position with a broker, any OTC desk or exchange and then use the "openPosition" function or simply wait until the price reaches the desired level before calling "openPosition"
 
 ### 2.2. Market request
 
