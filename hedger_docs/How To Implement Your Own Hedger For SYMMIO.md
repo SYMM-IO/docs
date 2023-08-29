@@ -75,7 +75,7 @@ The diagram below provides a detailed visualization of the potential steps a hed
 
     **Figure 3 hedger Actions after SendQuoteLimit**
 
-Upon seeing a request made by PartyA, hedgers should first check if they are whitelisted, meaning the user whitelisted the hedgers address as intent parameter & we are therefore allowed to act upon the request. After this, there's a race among hedgers to be the first to lock(claim) the Intent. The hedger who locks the intent first will have the opportunity to open the position. Thus, the hedger should to review the intent to ensure it aligns with their policies and is "interesting" enough to be opened, this is an additional security measure no onchain derivatives plattform in crypto can offer market makers. 
+Upon seeing a request made by PartyA, hedgers should first check if they are whitelisted, meaning the user whitelisted the hedgers address as intent parameter & they are therefore allowed to act upon the request. After this, there's a race among hedgers to be the first to lock(claim) the Intent. The hedger who locks the intent first will have the opportunity to open the position. Thus, the hedger should to review the intent to ensure it aligns with their policies and is "interesting" enough to be opened, this is an additional security measure no onchain derivatives plattform in crypto can offer market makers. 
 If the intent is interesting and matches hedger policies, and they have sufficient allocated balance with the corresponding PartyA, they should immediately lock it by calling the "lockQuote" function. 
 
 If they lack the necessary allocated balance, they should call the "AllocateAndLock" function to promptly execute both actions in a single transaction. Subsequently, the hedger can hedge the position with a broker, any OTC desk or exchange and then use the "openPosition" function or simply wait until the price reaches the desired level before calling "openPosition"
@@ -86,30 +86,30 @@ The diagram below shows a hedger's actions after spotting a market position
 
 ![](./pngs/SendQuoteMarket.drawio.png)
 
-    **Figure 4: hedger action after send Intent market**
+    **Figure 4: hedger action after send Intent(market) **
 
-Market requests are similar to Limit ones. However, there are two differences in the actions taken by the hedger for this type of Intent. Firstly, hedgers must check the deadline of the Intent to determine if there is enough time to open a position. Secondly, they can call "LockAndOpen" and "AllocateLockAndOpen" instead of "Lock" and "AllocateAndLock".
+Market requests are similar to Limit ones. However, there are two differences in the actions taken by the hedger for this type of Intent. Firstly, hedgers must check the deadline of the Intent to determine if there is enough time to open a hedging position. Secondly, they can call "LockAndOpen" and "AllocateLockAndOpen" instead of "Lock" and "AllocateAndLock".
 
 ### 2.3. Opening the position
 
 After the steps mentioned, the hedger should call the 'openPosition' function with the specified parameters:
 
 1. quoteId: The ID of the pending Intent that the hedger wants to fill.
-2. fillAmount: The hedger has the option to open only a fraction of the specified Intent amount. Whatever quantity remains unfilled will be egistered as a new intent in the system.
+2. fillAmount: The hedger has the option to open only a fraction of the specified Intent amount. Whatever quantity remains unfilled will be reposted as a new intent in the system.
 3. openedPrice: The average fill price for the Intent which should not exceed the price specified by the user. The Unrealized Profit and Loss (UPNL) are determined based on this price.
-4. Oracle Signature for Both Parties' UPNL: This signature is essential to evaluate the financial robustness of both parties after contract execution. The contract strictly forbids hedgers from initiating a position if it would lead to the liquidation of either party. Consequently, hedgers must carefully track the solvency ratio of parties with whom they have pending positions. If a pending inent appears to be no longer sustainable, they should immediately cease the related processes to avoid further losses.
+4. Oracle Signature for Both Parties' UPNL: This signature is essential to evaluate the solvency of both parties after contract execution. The contract strictly forbids hedgers from initiating a position if it would lead to the liquidation of either party. Consequently, hedgers must carefully track the solvency ratio of parties with whom they have pending positions. If a pending inent appears to be no longer economically sustainable for any party, they should immediately cease the related processes to avoid further losses.
 
 ### 2.4. Death of intent before becoming a position
 
-The intent can get expired or cancelled before turning into a position.
+An intent can become expired or cancelled before turning into a position.
 
 #### 2.4.1. Expiration
 
-Each intent is assigned an expiration time. For limit orders, the expiration time is automatically set to infinity by the front-end. If the hedger fails to open a position within this specified time frame, they will no longer be able to open it, and a third party or party A may choose to let the intent expire. If such a case happened the hedger must cancel its corresponding position on the broker side.
+Each intent has an expiration time assigned. For limit orders, the expiration time is automatically set to infinite during payload creation in the front-end (good practice for frontends). If the hedger fails to open a position within the specified time frame, they will no longer be able to open it, and a third party or partyA may choose to let the intent expire. If such a case happened the hedger should cancel its corresponding hedging position on the broker side to avoid being directionally exposed.
 
 #### 2.4.2. Cancellation
 
-If Party A decides to cancel a pending intent that is not locked by any hedger, the intent will be immediately canceled. However, if Party A chooses to cancel an already locked intent, the corresponding hedger is given a specific period, known as the "forced cancellation cooldown." During this time, the hedger must either accept the cancellation request or proceed with executing the intent, converting it into a position. The diagram below outlines the actions a hedger should take upon receiving a cancellation request for a previously locked intent.
+If PartyA decides to cancel a pending intent that is not locked(claimed) by any hedger, the intent will be immediately canceled. However, if PartyA chooses to cancel an already locked intent, the corresponding hedger is given a specific period, known as the "forced cancellation cooldown." During this time, the hedger must either accept the cancellation request or proceed with executing the intent, converting it into a position. The diagram below outlines the actions a hedger should take upon receiving a cancellation request for a previously locked intent.
 
 ![](./pngs/CancelIntent.drawio.png)
 
