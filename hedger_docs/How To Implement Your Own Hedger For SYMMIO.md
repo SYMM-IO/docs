@@ -1,5 +1,45 @@
 # How To Implement Your Own Hedger For SYMMIO
 
+# Important introductional notes
+
+## Introductory Notes on Hedging Strategy
+Scope and Perspective:
+This documentation  is curated from the perspective of an example hedger that adopts a precise 1:1 hedging strategy. This approach ensures that this example hedger remains delta neutral at every point in time, eliminating any directional exposure.
+This should only be seen as an example and not as an absolute, every MarketMaker can design his own hedging strategy at all time, or not hedge at all.
+But the SYMMIO protocol is designed in a way that gives MarketMakers the time and ability to hedge their trade comfortably if they decide to do so.
+
+Operational Context:
+When this example hedger initiates a trade on SYMMIO, they directly open a direct countertrade on their chosen broker platform before filling the order onchain, for instance, Binance. A unique aspect of this strategy is its sequential nature: a trade is only filled onchain when its hedging counterpart is confirmed, and conversely, it's only closed after the hedging trade is conclusively settled.
+
+Documentation Purpose:
+This liquidity provision strategy and the ensuing documentation serve as a template for what can be perceived as the lowest risk profile attainable in the hedging arena.
+
+However, a note of clarity: while this approach is streamlined and minimizes risks, we recognize it's somewhat rudimentary. Veteran market makers, armed with profound expertise, may devise intricate strategies that could potentially yield heightened profits, the SYMMIO system gives MarketMakers one hundred percent control over the hedging strategy they want to apply.
+Any segments of this documentation that could be interpreted differently should be perceived purely as guidelines. 
+They document aims to explain how a basic strategy could be seamlessly implemented, but in no way restrict or limit the development of other strategic avenues one might pursue.
+
+
+## Broker definition
+"Broker" Definition in Hedger Documentation
+Within the scope of Hedger's documentation, the term "Broker" holds a specific connotation, distinct from conventional interpretations. Let’s elucidate that.
+
+When we say "Broker" in the context of being a Hedger on SYMMIO, we're referring to a general "hedging strategy" that a MarketMaker (MM) can optionally design to hedge their SYMMIO trades. Importantly, it's vital to understand that our system doesn't necessitate a MarketMaker to hedge their trades. In fact, it's entirely optional. However, we've architected SYMMIO in such a way that if a MarketMaker decides to hedge, the system allows you to do so easily, it's entirely designed to make it simple and straightforward.
+
+Broad Application of the Term
+The term "Broker" is expansive in our context. It can encompass:
+
+Centralized Exchanges (CEX)
+Decentralized Exchanges (DEX)
+Over-The-Counter (OTC) Desks
+Spot holdings
+Any other hedging strategies, whether they exist on-chain or off-chain.
+
+A Note on Hedging Strategies
+We don’t categorize or prioritize one method of hedging over another. All are viewed through the same lens, and are designed by MarketMakers themselfs to be delta neutral or not, the system is designed to offer MarketMakers the potential to optimize their efficiency infinitely. 
+Moreover, we acknowledge that the realm of hedging is vast, with potentially limitless strategies and methods for securing a position. Thus, when you come across "Broker" in our documentation, remember that it speaks to this broad, encompassing perspective.
+
+
+
 ## 1. Introduction
 
 The Symmetrical platform offers traders the opportunity to engage in permission-less derivatives trading on the blockchain. There are two types of traders on this platform:
@@ -31,24 +71,7 @@ and the platform itself does not validate the contents of such communications.
 
 In our current frontend architecture streaming quotes on the other hand is not optional and every hedger should stream his offers upfront to a frontend in order to enable fast executions and CEX like UX.
 
-## Broker definition
-"Broker" Definition in Hedger Documentation
-Within the scope of Hedger's documentation, the term "Broker" holds a specific connotation, distinct from conventional interpretations. Let’s elucidate that.
 
-When we say "Broker" in the context of being a Hedger on SYMMIO, we're referring to a general "hedging strategy" that a MarketMaker (MM) can optionally design to hedge their SYMMIO trades. Importantly, it's vital to understand that our system doesn't necessitate a MarketMaker to hedge their trades. In fact, it's entirely optional. However, we've architected SYMMIO in such a way that if a MarketMaker decides to hedge, the system allows you to do so easily, it's entirely designed to make it simple and straightforward.
-
-Broad Application of the Term
-The term "Broker" is expansive in our context. It can encompass:
-
-Centralized Exchanges (CEX)
-Decentralized Exchanges (DEX)
-Over-The-Counter (OTC) Desks
-Spot holdings
-Any other hedging strategies, whether they exist on-chain or off-chain.
-
-A Note on Hedging Strategies
-We don’t categorize or prioritize one method of hedging over another. All are viewed through the same lens, and are designed by MarketMakers themselfs to be delta neutral or not, the system is designed to offer MarketMakers the potential to optimize their efficiency infinitely. 
-Moreover, we acknowledge that the realm of hedging is vast, with potentially limitless strategies and methods for securing a position. Thus, when you come across "Broker" in our documentation, remember that it speaks to this broad, encompassing perspective.
 
 
 
