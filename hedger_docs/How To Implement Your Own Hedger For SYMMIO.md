@@ -1,12 +1,12 @@
 # Glossary and Clarifications
 
-## The term "Hedger" is referred to a MarketMaker that provides Liquidity on the SYMMIO system.
+## The term "Hedger" is referred to a MarketMaker that provides Liquidity on SYMMIO.
 more information can also be found on Gitbook [https://docs.symm.io ](https://docs.symm.io/building-on-symm-io/liquidity-providers-hedgers)
 
 
 ## Scope and Perspective:
-This documentation  is curated from the perspective of an "example hedger" that adopts a precise 1:1 hedging strategy. This approach ensures that this "example hedger" remains delta neutral at every point in time, eliminating any directional exposure.
-This strategy should be interpreted as an example and not as an absolute when interacting with the SYMMIO system, every MarketMaker has full control to design his own hedging strategy, at any point when interacting with the core protocol, or not hedge at all.
+This documentation is curated from the perspective of an "example hedger" that adopts a precise 1:1 hedging strategy. This Strategy ensures that this "example hedger" remains delta neutral at every point in time, eliminating any directional exposure.
+This approach should be interpreted as an example and not as an absolute when interacting with the SYMMIO system, every MarketMaker has full control to, at any point when interacting with the core protocol, design his own hedging strategy,  or not hedge at all.
 But the SYMMIO protocol is specifiically designed in a way that gives MarketMakers the time and ability to hedge their trades comfortably if they decide to do so.
 
 ## Operational Context:
@@ -14,26 +14,19 @@ When this "example hedger" initiates a trade on SYMMIO, they directly open a dir
 
 ## Documentation Purpose:
 This liquidity provision strategy and the ensuing documentation serve as a template for what can be perceived as the lowest risk profile attainable in the hedging arena.
-
-However, a note of clarity: while this approach is streamlined and minimizes risks, we recognize it's somewhat rudimentary. Veteran market makers, armed with profound expertise, may devise intricate strategies that could potentially yield heightened profits, the SYMMIO system gives MarketMakers one hundred percent control over the hedging strategy they want to apply.
+However, a note of clarity: while this approach is streamlined and minimizes risks, we recognize it's somewhat rudimentary. 
+Veteran market makers, armed with profound expertise, may devise intricate strategies that could potentially yield heightened profits, 
+the SYMMIO system gives MarketMakers one hundred percent control over the hedging strategy they want to apply.
 Any segments of this documentation that could be interpreted differently should be perceived purely as guidelines. 
 They document aims to explain how a basic strategy could be seamlessly implemented, but in no way restrict or limit the development of other strategic avenues one might pursue.
 
-# Disclaimer about SYMMIO core systems and Hedger relationship.
-Hedger relationship: Clarifications & Caveats
-The Hedger documentation is crafted with a singular goal in mind: to provide a fundamental understanding of the hedger's role in the SYMMIO system to it's readers. (MarketMakers, Investors and everyone who is interested in becoming a Hedger himself) 
+# additional disclaimer about SYMMIO core systems and Hedger relationship: Clarifications & Caveats
 
-## Educational Use: 
-The Hedger documentation needs to reflect more comprehensively on the Symmio protocol. It is structured to provide an introductory grasp of what it means to be a hedger and offers a primer on how one can undertake this role.
-
-## Misconceptions: 
-Some readers might have concluded that the Symmio system depends on MarketMakers hedging themselves, leading to assumed trust dependencies on the MarketMaker side or that user funds and hedger funds are somehow dependent on off-chain brokers or results of hedging strategies. However, this understanding needs to be revised and could lead to erroneous interpretations of the system's architecture.
-
-## Top-Down Relationship: 
-To reiterate and clarify, the relationship between a Hedger and the Symmio protocol is top-down. That means whatever actions a hedger takes off-chain have no bearing on the on-chain events. Thus, there are no trust assumptions regarding the hedger side of things as they use off-chain systems to hedge themselves or the connection between these off-chain systems and SYMMIO itself. 
-
-## Independent On-Chain Contracts: 
-The Symmio contracts function independently of any off-chain actions a hedger performs. They operate exclusively within the on-chain environment and are not influenced or impacted by external actions.
+Educational Use: This Hedger documentation is crafted with a singular goal in mind: to provide a fundamental understanding of the hedger's role in the SYMMIO system to it's readers. (MarketMakers, Investors and everyone who is interested in becoming a Hedger himself) 
+The Hedger documentation is educational and not a comprehensive reflection of the entire Symmio protocol. It is structured to provide an introductory grasp of what it means to be a hedger and offers a primer on how one can undertake this role.
+Misconceptions: Some readers might have concluded that the Symmio system depends on MarketMakers hedging themselves, leading to assumed trust dependencies on the MarketMaker side or that user funds and hedger funds are somehow dependent on off-chain brokers or results of hedging strategies. However, this understanding needs to be revised and could lead to erroneous interpretations of the system's architecture.
+Top-Down Relationship: To reiterate and clarify, the relationship between a Hedger and the Symmio protocol is top-down. That means whatever actions a hedger takes off-chain have no bearing on the on-chain events. Thus, there are no trust assumptions regarding the hedger side of things as they use off-chain systems to hedge themselves or the connection between these off-chain systems and SYMMIO itself. 
+Independent On-Chain Contracts: The Symmio contracts function independently of any off-chain actions a hedger performs. They operate exclusively within the on-chain environment and are not influenced or impacted by external actions.
 The SYMMIO system is fully isolated from any issues that may or may not arise in combination with MarketMakers and the off-chain systems, centralized exchanges, trading desks, or any other forms of hedging they use.
 We strongly recommend readers to familiarize themselves with these points to understand Hedger's role and its interaction with the Symmio protocol. It's essential to interpret the Hedger section in light of these clarifications to avoid misrepresentations of the Symmio protocol's actual functioning.
 
