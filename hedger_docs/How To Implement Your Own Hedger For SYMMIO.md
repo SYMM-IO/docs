@@ -32,8 +32,25 @@ and the platform itself does not validate the contents of such communications.
 In our current frontend architecture streaming quotes on the other hand is not optional and every hedger should stream his offers upfront to a frontend in order to enable fast executions and CEX like UX.
 
 ## Broker definition
-Throughout the Hedger documentation, we will mention the word "Broker", a Broker in our terms means, a place where a MarketMaker hedges his trade, as we discussed before the system itself does not require a MM to hedge himself at all, but we designed the system in a way to make hedging on Brokers possible.
-So whenever the word Broker is mentioned we mean any CEX, DEX, OTC Desk, Spot holdings or any other Hedging strategy on or offchain, we dont really distinguish between the different ways to hedge, and we also understand that there could be an infinite ways to potentially hedge a position.
+"Broker" Definition in Hedger Documentation
+Within the scope of Hedger's documentation, the term "Broker" holds a specific connotation, distinct from conventional interpretations. Let’s elucidate that.
+
+What We Mean By "Broker"
+When we say "Broker" in the context of Hedger, we're referring to a general hedging strategy where a MarketMaker (MM) can opt to hedge their trade. Importantly, it's vital to understand that our system doesn't necessitate a MarketMaker to hedge their trades. In fact, it's entirely optional. However, we've architected SYMMIO in such a way that if a MarketMaker decides to hedge, they can comfortably do so using "Brokers".
+
+Broad Application of the Term
+The term "Broker" is expansive in our context. It can encompass:
+
+Centralized Exchanges (CEX)
+Decentralized Exchanges (DEX)
+Over-The-Counter (OTC) Desks
+Spot holdings
+Any other hedging strategies, whether they exist on-chain or off-chain.
+
+A Note on Hedging Strategies
+We don’t categorize or prioritize one method of hedging over another. All are viewed through the same lens, and are designed by MarketMakers themselfs to be delta neutral or not, the system is designed to offer MarketMakers the potential to optimize their efficiency infinitely. 
+Moreover, we acknowledge that the realm of hedging is vast, with potentially limitless strategies and methods for securing a position. Thus, when you come across "Broker" in our documentation, remember that it speaks to this broad, encompassing perspective.
+
 
 
 ## Figure1 shows how PartyAs and Hedgers are communicate.
