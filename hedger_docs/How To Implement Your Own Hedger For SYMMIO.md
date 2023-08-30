@@ -1,15 +1,20 @@
 # How To Implement Your Own Hedger For SYMMIO
 
 # Introductory Notes on Hedging Strategy
-Scope and Perspective:
-This documentation  is curated from the perspective of an example hedger that adopts a precise 1:1 hedging strategy. This approach ensures that this example hedger remains delta neutral at every point in time, eliminating any directional exposure.
+
+## The term "Hedger" is referred to a MarketMaker that provides Liquidity on the SYMMIO system.
+more information can also be found on Gitbook [https://docs.symm.io ](https://docs.symm.io/building-on-symm-io/liquidity-providers-hedgers)
+
+
+## Scope and Perspective:
+This documentation  is curated from the perspective of an "example hedger" that adopts a precise 1:1 hedging strategy. This approach ensures that this example hedger remains delta neutral at every point in time, eliminating any directional exposure.
 This should only be seen as an example and not as an absolute, every MarketMaker can design his own hedging strategy at all time, or not hedge at all.
 But the SYMMIO protocol is designed in a way that gives MarketMakers the time and ability to hedge their trade comfortably if they decide to do so.
 
-Operational Context:
+## Operational Context:
 When this example hedger initiates a trade on SYMMIO, they directly open a direct countertrade on their chosen broker platform before filling the order onchain, for instance, Binance. A unique aspect of this strategy is its sequential nature: a trade is only filled onchain when its hedging counterpart is confirmed, and conversely, it's only closed after the hedging trade is conclusively settled.
 
-Documentation Purpose:
+## Documentation Purpose:
 This liquidity provision strategy and the ensuing documentation serve as a template for what can be perceived as the lowest risk profile attainable in the hedging arena.
 
 However, a note of clarity: while this approach is streamlined and minimizes risks, we recognize it's somewhat rudimentary. Veteran market makers, armed with profound expertise, may devise intricate strategies that could potentially yield heightened profits, the SYMMIO system gives MarketMakers one hundred percent control over the hedging strategy they want to apply.
