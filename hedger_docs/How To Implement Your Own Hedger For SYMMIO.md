@@ -20,7 +20,7 @@ the SYMMIO system gives MarketMakers one hundred percent control over the hedgin
 Any segments of this documentation that could be interpreted differently should be perceived purely as guidelines. 
 They document aims to explain how a basic strategy could be seamlessly implemented, but in no way restrict or limit the development of other strategic avenues one might pursue.
 
-### additional disclaimer about SYMMIO core systems and Hedger relationship: Clarifications & Caveats
+## Additional Disclaimer - SYMMIO core systems and Hedger relationship: Clarifications & Caveats
 
 **Educational Use:** This Hedger documentation is crafted with a singular goal in mind: to provide a fundamental understanding of the hedger's role in the SYMMIO system to it's readers. (MarketMakers, Investors and everyone who is interested in becoming a Hedger himself) 
 The Hedger documentation is educational and not a comprehensive reflection of the entire Symmio protocol. It is structured to provide an introductory grasp of what it means to be a hedger and offers a primer on how one can undertake this role.<br>
