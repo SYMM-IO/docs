@@ -1,6 +1,6 @@
 # Glossary and Clarifications
 
-**The term "Hedger" is referred to a MarketMaker that provides Liquidity on SYMMIO.**
+**The term "Hedger" is referred to a MarketMaker that provides Liquidity on SYMMIO.** <br>
 more information can also be found on Gitbook [https://docs.symm.io ](https://docs.symm.io/building-on-symm-io/liquidity-providers-hedgers)
 
 
@@ -9,7 +9,7 @@ This documentation is curated from the perspective of an "example hedger" that a
 This approach should be interpreted as an example and not as an absolute when interacting with the SYMMIO system, every MarketMaker has full control to, at any point when interacting with the core protocol, design his own hedging strategy,  or not hedge at all.
 But the SYMMIO protocol is specifiically designed in a way that gives MarketMakers the time and ability to hedge their trades comfortably if they decide to do so.
 
-*Operational Context:**
+**Operational Context:**
 When this "example hedger" initiates a trade on SYMMIO, they directly open a direct countertrade on their chosen broker platform (for instance, Binance) before filling the order onchain. A unique aspect of this strategy is its sequential nature: a trade is only filled onchain when its hedging counterpart is confirmed, and conversely, it's only closed after the hedging trade is conclusively settled.
 
 **Documentation Purpose:**
