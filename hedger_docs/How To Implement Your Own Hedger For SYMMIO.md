@@ -1,6 +1,4 @@
-# How To Implement Your Own Hedger For SYMMIO
-
-# Introductory Notes on Hedging Strategy
+# Glossary and Clarifications
 
 ## The term "Hedger" is referred to a MarketMaker that provides Liquidity on the SYMMIO system.
 more information can also be found on Gitbook [https://docs.symm.io ](https://docs.symm.io/building-on-symm-io/liquidity-providers-hedgers)
@@ -58,7 +56,7 @@ A Note on Hedging Strategies
 We don’t categorize or prioritize one method of hedging over another. All are viewed through the same lens, and are designed by MarketMakers themselfs to be delta neutral or not, the system is designed to offer MarketMakers the potential to optimize their efficiency infinitely. 
 Moreover, we acknowledge that the realm of hedging is vast, with potentially limitless strategies and methods for securing a position. Thus, when you come across "Broker" in our documentation, remember that it speaks to this broad, encompassing perspective.
 
-
+# How To Implement Your Own Hedger For SYMMIO
 
 ## 1. Introduction
 
