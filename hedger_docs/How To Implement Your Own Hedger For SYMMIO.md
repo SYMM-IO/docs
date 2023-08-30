@@ -36,7 +36,7 @@ Throughout the Hedger documentation, we will mention the word "Broker", a Broker
 So whenever the word Broker is mentioned we mean any CEX, DEX, OTC Desk, Spot holdings or any other Hedging strategy on or offchain, we dont really distinguish between the different ways to hedge, and we also understand that there could be an infinite ways to potentially hedge a position.
 
 
-Figure1 shows how PartyAs and Hedgers are communicate.
+## Figure1 shows how PartyAs and Hedgers are communicate.
 
 ![](./pngs/HedgerUserConnection.drawio.png)
 
