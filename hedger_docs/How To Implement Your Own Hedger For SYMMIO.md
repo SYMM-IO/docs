@@ -35,8 +35,7 @@ In our current frontend architecture streaming quotes on the other hand is not o
 "Broker" Definition in Hedger Documentation
 Within the scope of Hedger's documentation, the term "Broker" holds a specific connotation, distinct from conventional interpretations. Let’s elucidate that.
 
-What We Mean By "Broker"
-When we say "Broker" in the context of Hedger, we're referring to a general hedging strategy where a MarketMaker (MM) can opt to hedge their trade. Importantly, it's vital to understand that our system doesn't necessitate a MarketMaker to hedge their trades. In fact, it's entirely optional. However, we've architected SYMMIO in such a way that if a MarketMaker decides to hedge, they can comfortably do so using "Brokers".
+When we say "Broker" in the context of being a Hedger on SYMMIO, we're referring to a general "hedging strategy" that a MarketMaker (MM) can optionally design to hedge their SYMMIO trades. Importantly, it's vital to understand that our system doesn't necessitate a MarketMaker to hedge their trades. In fact, it's entirely optional. However, we've architected SYMMIO in such a way that if a MarketMaker decides to hedge, the system allows you to do so easily, it's entirely designed to make it simple and straightforward.
 
 Broad Application of the Term
 The term "Broker" is expansive in our context. It can encompass:
