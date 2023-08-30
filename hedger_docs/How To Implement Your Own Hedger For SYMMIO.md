@@ -5,12 +5,12 @@ more information can also be found on Gitbook [https://docs.symm.io ](https://do
 
 
 ## Scope and Perspective:
-This documentation  is curated from the perspective of an "example hedger" that adopts a precise 1:1 hedging strategy. This approach ensures that this example hedger remains delta neutral at every point in time, eliminating any directional exposure.
-This should only be seen as an example and not as an absolute, every MarketMaker can design his own hedging strategy at all time, or not hedge at all.
-But the SYMMIO protocol is designed in a way that gives MarketMakers the time and ability to hedge their trade comfortably if they decide to do so.
+This documentation  is curated from the perspective of an "example hedger" that adopts a precise 1:1 hedging strategy. This approach ensures that this "example hedger" remains delta neutral at every point in time, eliminating any directional exposure.
+This strategy should be interpreted as an example and not as an absolute when interacting with the SYMMIO system, every MarketMaker has full control to design his own hedging strategy, at any point when interacting with the core protocol, or not hedge at all.
+But the SYMMIO protocol is specifiically designed in a way that gives MarketMakers the time and ability to hedge their trades comfortably if they decide to do so.
 
 ## Operational Context:
-When this example hedger initiates a trade on SYMMIO, they directly open a direct countertrade on their chosen broker platform before filling the order onchain, for instance, Binance. A unique aspect of this strategy is its sequential nature: a trade is only filled onchain when its hedging counterpart is confirmed, and conversely, it's only closed after the hedging trade is conclusively settled.
+When this "example hedger" initiates a trade on SYMMIO, they directly open a direct countertrade on their chosen broker platform (for instance, Binance) before filling the order onchain. A unique aspect of this strategy is its sequential nature: a trade is only filled onchain when its hedging counterpart is confirmed, and conversely, it's only closed after the hedging trade is conclusively settled.
 
 ## Documentation Purpose:
 This liquidity provision strategy and the ensuing documentation serve as a template for what can be perceived as the lowest risk profile attainable in the hedging arena.
