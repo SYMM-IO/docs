@@ -31,6 +31,9 @@ and the platform itself does not validate the contents of such communications.
 
 In our current frontend architecture streaming quotes on the other hand is not optional and every hedger should stream his offers upfront to a frontend in order to enable fast executions and CEX like UX.
 
+## Broker definition
+Throughout the Hedger documentation, we will mention the word "Broker", a Broker in our terms means, a place where a MarketMaker hedges his trade, as we discussed before the system itself does not require a MM to hedge himself at all, but we designed the system in a way to make hedging on Brokers possible.
+So whenever the word Broker is mentioned we mean any CEX, DEX, OTC Desk, Spot holdings or any other Hedging strategy on or offchain, we dont really distinguish between the different ways to hedge, and we also understand that there could be an infinite ways to potentially hedge a position.
 
 
 Figure1 shows how PartyAs and Hedgers are communicate.
