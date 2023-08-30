@@ -1,18 +1,18 @@
 # Glossary and Clarifications
 
-## The term "Hedger" is referred to a MarketMaker that provides Liquidity on SYMMIO.
+### The term "Hedger" is referred to a MarketMaker that provides Liquidity on SYMMIO.
 more information can also be found on Gitbook [https://docs.symm.io ](https://docs.symm.io/building-on-symm-io/liquidity-providers-hedgers)
 
 
-## Scope and Perspective:
+### Scope and Perspective:
 This documentation is curated from the perspective of an "example hedger" that adopts a precise 1:1 hedging strategy. This Strategy ensures that this "example hedger" remains delta neutral at every point in time, eliminating any directional exposure.
 This approach should be interpreted as an example and not as an absolute when interacting with the SYMMIO system, every MarketMaker has full control to, at any point when interacting with the core protocol, design his own hedging strategy,  or not hedge at all.
 But the SYMMIO protocol is specifiically designed in a way that gives MarketMakers the time and ability to hedge their trades comfortably if they decide to do so.
 
-## Operational Context:
+### Operational Context:
 When this "example hedger" initiates a trade on SYMMIO, they directly open a direct countertrade on their chosen broker platform (for instance, Binance) before filling the order onchain. A unique aspect of this strategy is its sequential nature: a trade is only filled onchain when its hedging counterpart is confirmed, and conversely, it's only closed after the hedging trade is conclusively settled.
 
-## Documentation Purpose:
+### Documentation Purpose:
 This liquidity provision strategy and the ensuing documentation serve as a template for what can be perceived as the lowest risk profile attainable in the hedging arena.
 However, a note of clarity: while this approach is streamlined and minimizes risks, we recognize it's somewhat rudimentary. 
 Veteran market makers, armed with profound expertise, may devise intricate strategies that could potentially yield heightened profits, 
@@ -20,7 +20,7 @@ the SYMMIO system gives MarketMakers one hundred percent control over the hedgin
 Any segments of this documentation that could be interpreted differently should be perceived purely as guidelines. 
 They document aims to explain how a basic strategy could be seamlessly implemented, but in no way restrict or limit the development of other strategic avenues one might pursue.
 
-# additional disclaimer about SYMMIO core systems and Hedger relationship: Clarifications & Caveats
+### additional disclaimer about SYMMIO core systems and Hedger relationship: Clarifications & Caveats
 
 **Educational Use:** This Hedger documentation is crafted with a singular goal in mind: to provide a fundamental understanding of the hedger's role in the SYMMIO system to it's readers. (MarketMakers, Investors and everyone who is interested in becoming a Hedger himself) 
 The Hedger documentation is educational and not a comprehensive reflection of the entire Symmio protocol. It is structured to provide an introductory grasp of what it means to be a hedger and offers a primer on how one can undertake this role.<br>
@@ -33,7 +33,7 @@ The Hedger documentation is educational and not a comprehensive reflection of th
 The SYMMIO system is fully isolated from any issues that may or may not arise in combination with MarketMakers and the off-chain systems, centralized exchanges, trading desks, or any other forms of hedging they use.
 We strongly recommend readers to familiarize themselves with these points to understand Hedger's role and its interaction with the Symmio protocol. It's essential to interpret the Hedger section in light of these clarifications to avoid misrepresentations of the Symmio protocol's actual functioning.
 
-## Broker definition
+### Broker definition
 "Broker" Definition in Hedger Documentation
 Within the scope of Hedger's documentation, the term "Broker" holds a specific connotation, distinct from conventional interpretations. Let’s elucidate that.
 
