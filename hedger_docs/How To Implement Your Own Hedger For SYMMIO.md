@@ -101,7 +101,8 @@ Intents are the heart of the system so we need to get familiar with the lifecycl
 
 ## 2. Send Intent (Send Quote)
 
-Let's start with where an intent gets born and see what parameters are inside an intent (current SYMM version 0.8, Intents could be completly customized to offer other products like Options, Expiring Swaps etc). 
+Let's continue with how and where an intent gets created and see what arguments an intent in the current SYMM version 0.81 has.
+Please note that intents could be optimized to offer other products like Options, Expiring Swaps etc. (planned for SYMM v1.0 and upwards)
 In the following table, we describe each field of a intent that is provided by a user during their request for a intent.
 
 **Table 1: Structure of an Intent**
