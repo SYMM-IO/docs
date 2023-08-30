@@ -153,7 +153,7 @@ After the steps mentioned, the hedger should call the 'openPosition' function wi
 3. openedPrice: The average fill price for the Intent which should not exceed the price specified by the user. The Unrealized Profit and Loss (UPNL) are determined based on this price.
 4. Oracle Signature for Both Parties' UPNL: This signature is essential to evaluate the solvency of both parties after contract execution. The contract strictly forbids hedgers from initiating a position if it would lead to the liquidation of either party. Consequently, hedgers must carefully track the solvency ratio of parties with whom they have pending positions. If a pending inent appears to be no longer economically sustainable for any party, they should immediately cease the related processes to avoid further losses.
 
-### 2.4. Death of intent before becoming a position
+### 2.4. Expiration of an intent before being claimed and executed and becoming a position
 
 An intent can become expired or cancelled before turning into a position.
 
