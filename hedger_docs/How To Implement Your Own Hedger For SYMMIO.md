@@ -87,7 +87,7 @@ In our current frontend architecture streaming quotes on the other hand is not o
 
 
 
-## Figure1 shows how PartyAs and Hedgers are communicate.
+## Figure1 shows how PartyAs and Hedgers communicate.
 
 ![](./pngs/HedgerUserConnection.drawio.png)
 
