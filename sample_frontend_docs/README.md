@@ -9,10 +9,8 @@ This project serves as an interface for our trading platform, enabling users to 
 
 ## Installation & Running Locally
 
-1. Clone the repository `git clone https://github.com/maliabr/core-interface`
-2. Navigate into the directory `cd core-interface`
-3. Install dependencies `yarn install`
-4. Run the project `yarn dev`
+1. Install dependencies `yarn install`
+2. Run the project `yarn dev`
 
 ## Folder Structure
 
