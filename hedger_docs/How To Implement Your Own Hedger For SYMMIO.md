@@ -64,7 +64,7 @@ Each PartyB has the freedom to adopt their own hedging strategy, they can also c
 
 The main connection between PartyA and PartyB is based on onchain contracts. 
 Consequently, it is essential for each hedger to be able to monitor requests made by PartyA on the blockchain. 
-This can be achieved by utilizing a subgraph or event-listener for example you can see this link https://api.thegraph.com/subgraphs/name/rastegarishirazu/base-result-quote which is a subgraph to SYMMIO test net or using or for event listener using ethers JS (https://docs.ethers.org/v5/api/providers/provider/#Provider--events). 
+This can be achieved by utilizing a subgraph or event-listener for example you can see this link [SYMMIO-Subgraph](https://api.thegraph.com/subgraphs/name/symmiograph/symmioanalytics_bnb_8) which is a subgraph to SYMMIO on BSC net or using or for event listener using [ethers-JS](https://docs.ethers.org/v5/api/providers/provider/#Provider--events). 
 Moreover, it is imperative for the hedgers to respond to these requests via onchain calls to the SYMMIO core contracts.
 
 Additional connections are established between PartyA and the hedgers through the front-end interface, 
@@ -92,30 +92,30 @@ Intents are the heart of the system so we need to get familiar with the lifecycl
 
 ![](./pngs/IntentTimeLine.drawio.png)
 
-​																										**Figure 2: Lifecycle of Intent**
+​																										**Figure 2: Life Cycle of Intent**
 
 ## 2. Send Intent (Send Quote)
 
-Let's continue with how and where an intent gets created and see what arguments an intent in the current SYMM version 0.81 has.
+Let's continue with how and where an intent gets created and see what arguments an intent in the current SYMM version 0.8.0 has.
 Please note that intents could be optimized to offer other products like Options, Expiring Swaps etc. (planned for SYMM v1.0 and upwards)
 In the following table, we describe each field of a intent that is provided by a user during their request for a intent.
 
 **Table 1: Structure of an Intent**
 
-| Field            | Description                                                                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| partyA           | The address of the user who made the request                                                                                         |
-| quoteId          | The unique identifier of the quote, which must be referenced in all further requests                                                |
+| Field            | Description                                                  |
+| ---------------- | ------------------------------------------------------------ |
+| partyA           | The address of the user who made the request                 |
+| quoteId          | The unique identifier of the quote, which must be referenced in all further requests |
 | partyBsWhiteList | The whitelist of the hedgers who are allowed to take action upon this intent. If it is empty, it means that all hedgers are allowed |
-| symbolId         | The symbol identifier of the symbol that the user has sent ab intent for                                                            |
-| positionType     | The position type: LONG or SHORT (It would actually be 0 and 1 in the data)                                                          |
-| orderType        | The order type: Limit or Market (It would actually be 0 and 1 in the data)                                                          |
-| price            | The price that the user has requested                                                                                                |
-| quantity         | The quantity of the requested position                                                                                               |
-| cva              | In case of liquidation, this is a penalty that the liquidated side of the trade must pay to the other side                          |
-| mm               | The maintenance margin of this intent                                                                                                |
-| lf               | The liquidation fee which is going to be paid to the liquidator                                                                      |
-| deadline         | Specifies the period in which hedger is allowed to open this position                                                             |
+| symbolId         | The symbol identifier of the symbol that the user has sent an intent for |
+| positionType     | The position type: LONG or SHORT (It would actually be 0 and 1 in the data) |
+| orderType        | The order type: Limit or Market (It would actually be 0 and 1 in the data) |
+| price            | The price that the user has requested                        |
+| quantity         | The quantity of the requested position                       |
+| cva              | In case of liquidation, this is a penalty that the liquidated side of the trade must pay to the other side |
+| mm               | The maintenance margin of this intent                        |
+| lf               | The liquidation fee which is going to be paid to the liquidator |
+| deadline         | Specifies the period in which hedger is allowed to open this position |
 
 
 
@@ -162,9 +162,10 @@ The diagram below shows a hedger's actions after spotting a market position
 
 ![](./pngs/SendQuoteMarket.drawio.png)
 
-​																					**Figure 4: hedger action after send Intent(market) **
+​																					**Figure 4: hedger action after send Intent(market)** 
 
 Market requests are similar to Limit ones. However, there are two differences in the actions taken by the hedger for this type of Intent. Firstly, hedgers must check the deadline of the Intent to determine if there is enough time to open a hedging position. Secondly, they can call "LockAndOpen" and "AllocateLockAndOpen" instead of "Lock" and "AllocateAndLock". Sample codes for LockAndOpen and AllocateLockAndOpen are similar to AllocateAndLock the only difference is how to create the raw transaction the following code snippet is a sample for this purpose: 
+
 ```python
 raw_transaction = contract.functions.allocateAndLockAndOpenQuote(
     			quote_id, allocate_amount, filled_amount, open_price, hedger_upnl_signature.to_tuple(), parties_upnl_price_signature.to_tuple()
@@ -172,7 +173,7 @@ raw_transaction = contract.functions.allocateAndLockAndOpenQuote(
 raw_transaction = contract.functions.allocateAndLockQuote(quote_id, int(amount * Scale), hedger_upnl_signature.to_tuple())
 ```
 
-
+The usage of Lock&Open and Allocate&Lock&Open techniques is driven by the users' expectations of quick response times for market orders. However, it is crucial for the hedger to acknowledge the possibility of another hedger locking the same quote during the delay between placing the order with the broker and calling lock&Open. This could result in the hedger being unable to proceed with their intended action, leading to potential losses. To mitigate this risk, the hedger can adopt a strategy similar to limit orders on market orders, where quotes are locked before being opened on both broker and contract. It's important to note that this approach sacrifices response time and user experience, which may result in decreased interest in working with this hedger from users.
 
 ### 2.3. Opening the position
 

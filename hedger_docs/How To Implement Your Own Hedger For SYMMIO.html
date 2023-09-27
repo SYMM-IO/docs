@@ -1,0 +1,719 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>How To Implement Your Own Hedger For SYMMIO</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='glossary-and-clarifications'><span>Glossary and Clarifications</span></h1><p><strong><span>The term &quot;Hedger&quot; is referred to a MarketMaker that provides Liquidity on SYMMIO.</span></strong><span> </span><br>
+<span>more information can also be found on Gitbook </span><a href='https://docs.symm.io/building-on-symm-io/liquidity-providers-hedgers'><span>https://docs.symm.io </span></a></p><p><strong><span>Scope and Perspective:</span></strong>
+<span>This documentation is curated from the perspective of an &quot;example hedger&quot; that adopts a precise 1:1 hedging strategy. This Strategy ensures that this &quot;example hedger&quot; remains delta neutral at every point in time, eliminating any directional exposure.</span>
+<span>This approach should be interpreted as an example and not as an absolute when interacting with the SYMMIO system, every MarketMaker has full control to, at any point when interacting with the core protocol, design his own hedging strategy,  or not hedge at all.</span>
+<span>But the SYMMIO protocol is specifiically designed in a way that gives MarketMakers the time and ability to hedge their trades comfortably if they decide to do so.</span></p><p><strong><span>Operational Context:</span></strong>
+<span>When this &quot;example hedger&quot; initiates a trade on SYMMIO, they directly open a direct countertrade on their chosen broker platform (for instance, Binance) before filling the order onchain. A unique aspect of this strategy is its sequential nature: a trade is only filled onchain when its hedging counterpart is confirmed, and conversely, it&#39;s only closed after the hedging trade is conclusively settled.</span></p><p><strong><span>Documentation Purpose:</span></strong>
+<span>This liquidity provision strategy and the ensuing documentation serve as a template for what can be perceived as the lowest risk profile attainable in the hedging arena.</span>
+<span>However, a note of clarity: while this approach is streamlined and minimizes risks, we recognize it&#39;s somewhat rudimentary. </span>
+<span>Veteran market makers, armed with profound expertise, may devise intricate strategies that could potentially yield heightened profits, </span>
+<span>the SYMMIO system gives MarketMakers one hundred percent control over the hedging strategy they want to apply.</span>
+<span>Any segments of this documentation that could be interpreted differently should be perceived purely as guidelines. </span>
+<span>They document aims to explain how a basic strategy could be seamlessly implemented, but in no way restrict or limit the development of other strategic avenues one might pursue.</span></p><h2 id='additional-disclaimer---symmio-core-systems-and-hedger-relationship'><span>Additional Disclaimer - SYMMIO core systems and Hedger relationship</span></h2><p><strong><span>Educational Use:</span></strong><span> This Hedger documentation is crafted with a singular goal in mind: to provide a fundamental understanding of the hedger&#39;s role in the SYMMIO system to it&#39;s readers. (MarketMakers, Investors and everyone who is interested in becoming a Hedger himself) </span>
+<span>The Hedger documentation is educational and not a comprehensive reflection of the entire Symmio protocol. It is structured to provide an introductory grasp of what it means to be a hedger and offers a primer on how one can undertake this role.</span><br></p><p><strong><span>Misconceptions:</span></strong><span> Some readers might have concluded that the Symmio system depends on MarketMakers hedging themselves, leading to assumed trust dependencies on the MarketMaker side or that user funds and hedger funds are somehow dependent on off-chain brokers or results of hedging strategies. However, this understanding needs to be revised and could lead to erroneous interpretations of the system&#39;s architecture. </span><br></p><p><strong><span>Top-Down Relationship:</span></strong><span> To reiterate and clarify, the relationship between a Hedger and the Symmio protocol is top-down. That means whatever actions a hedger takes off-chain have no bearing on the on-chain events. Thus, there are no trust assumptions regarding the hedger side of things as they use off-chain systems to hedge themselves or the connection between these off-chain systems and SYMMIO itself. </span><br></p><p><strong><span>Independent On-Chain Contracts:</span></strong><span> The Symmio contracts function independently of any off-chain actions a hedger performs. They operate exclusively within the on-chain environment and are not influenced or impacted by external actions.</span>
+<span>The SYMMIO system is fully isolated from any issues that may or may not arise in combination with MarketMakers and the off-chain systems, centralized exchanges, trading desks, or any other forms of hedging they use.</span>
+<span>We strongly recommend readers to familiarize themselves with these points to understand Hedger&#39;s role and its interaction with the Symmio protocol. It&#39;s essential to interpret the Hedger section in light of these clarifications to avoid misrepresentations of the Symmio protocol&#39;s actual functioning.</span></p><h3 id='broker-definition'><span>Broker definition</span></h3><p><span>Within the scope of Hedger&#39;s documentation, the term &quot;Broker&quot; holds a specific connotation, distinct from conventional interpretations. Let’s elucidate that.</span>
+<span>When the term &quot;Broker&quot; is mentioned in the context of being a Hedger on SYMMIO, it is being referred to as a general &quot;hedging strategy&quot; that a MarketMaker (MM) can optionally design to hedge their SYMMIO trades. Importantly, it&#39;s vital to understand that our system doesn&#39;t necessitate a MarketMaker to hedge their trades. In fact, it&#39;s entirely optional. However, we&#39;ve architected SYMMIO in such a way that if a MarketMaker decides to hedge, the system allows you to do so easily, it&#39;s entirely designed to make it simple and straightforward.</span></p><p><span>Broad Application of the Term</span>
+<span>The term &quot;Broker&quot; is expansive in our context. It can encompass:</span></p><p><span>Centralized Exchanges (CEX)</span>
+<span>Decentralized Exchanges (DEX)</span>
+<span>Over-The-Counter (OTC) Desks</span>
+<span>Spot holdings</span>
+<span>Any other hedging strategies, whether they exist on-chain or off-chain.</span></p><p><span>A Note on Hedging Strategies</span>
+<span>We don’t categorize or prioritize one method of hedging over another. All are viewed through the same lens, and are designed by MarketMakers themselfs to be delta neutral or not, the system is designed to offer MarketMakers the potential to optimize their efficiency infinitely. </span>
+<span>Moreover, we acknowledge that the realm of hedging is vast, with potentially limitless strategies and methods for securing a position. Thus, when you come across &quot;Broker&quot; in our documentation, remember that it speaks to this broad, encompassing perspective.</span></p><h1 id='how-to-implement-your-own-hedger-for-symmio'><span>How To Implement Your Own Hedger For SYMMIO</span></h1><h2 id='1-introduction'><span>1. Introduction</span></h2><p><span>The Symmetrical platform offers traders the opportunity to engage in permission-less derivatives trading on the blockchain. There are two types of traders on this platform:</span></p><ol start='' ><li><p><span>PartyA: They post requests for trades, also known as Intents.</span></p></li><li><p><span>PartyB (hedgers, market makers): They respond to the requests made by PartyA, by claiming the Intent.</span></p></li></ol><p><span>From now on we will refer to PartyB or MarketMaker as &quot;Hedger&quot; as well as the Software to Market make as &quot;hedging software&quot;, anything that offers quotes &amp; accepts intents in the SYMMIO ecosystem is referred to &quot;Hedger&quot;, and the strategy to Market make on SYMMIO is referred to as &quot;hedging&quot;, even tho it is not required to be delta neutral at all times.</span></p><p><span>Each PartyB has the freedom to adopt their own hedging strategy, they can also choose to not hedge at all and be directionally exposed. However, certain rules are in place to ensure fairness within the system. In order to develop a customized MarketMaking approach, it is crucial to understand the timeline of Intents, the various requests made by PartyA, and the potential scenarios that may arise as a result of PartyA&#39;s actions. This document aims to focus on these aspects to assist you in building your own hedger.</span></p><p><span>The main connection between PartyA and PartyB is based on onchain contracts. </span>
+<span>Consequently, it is essential for each hedger to be able to monitor requests made by PartyA on the blockchain. </span>
+<span>This can be achieved by utilizing a subgraph or event-listener for example you can see this link </span><a href='https://api.thegraph.com/subgraphs/name/symmiograph/symmioanalytics_bnb_8'><span>SYMMIO-Subgraph</span></a><span> which is a subgraph to SYMMIO on BSC net or using or for event listener using </span><a href='https://docs.ethers.org/v5/api/providers/provider/#Provider--events'><span>ethers-JS</span></a><span>. </span>
+<span>Moreover, it is imperative for the hedgers to respond to these requests via onchain calls to the SYMMIO core contracts.</span></p><p><span>Additional connections are established between PartyA and the hedgers through the front-end interface, </span>
+<span>Hedgers stream current quotes as Bid and Ask to frontends as well as funding, </span>
+<span>collateral requirements but also simple notifications to enhance UX can be streamed via websocket connections. </span>
+<span>These connections aim to enhance the user experience by updating users on the status of their positions and intentions, </span>
+<span>as well as decreasing the time from request to execution by streaming quotes upfront. </span>
+<span>For example, a hedger might notify the user when their request has been viewed, </span>
+<span>indicate the percentage of limit orders that have been filled, </span>
+<span>confirm if a transaction has been conducted in response to the user&#39;s request, </span>
+<span>or explain the reasons for rejecting the user&#39;s request. </span>
+<span>These types of connections are entirely optional. </span>
+<span>Each hedger may choose whether or not to provide this kind of information, </span>
+<span>and the platform itself does not validate the contents of such communications. </span></p><p><span>In our current frontend architecture streaming quotes on the other hand is not optional and every hedger should stream his offers upfront to a frontend in order to enable fast executions and CEX like UX.</span></p><p><span>Figure1 shows how PartyAs and Hedgers communicate.</span></p><p><img src="./pngs/HedgerUserConnection.drawio.png" referrerpolicy="no-referrer"></p><p><span>														</span><span>         </span><strong><span>Figure 1: Different types of communication of hedger (PartyB) and PartyA</span></strong></p><p><span>Intents are the heart of the system so we need to get familiar with the lifecycle of an intent before going any further. Figure 2 illustrates the lifecycle of an intent. The dashed arrows represent actions taken by the hedger, and the solid arrows represent actions taken by Party A or a third party. The circles indicate the state of the intent.</span></p><p><img src="./pngs/IntentTimeLine.drawio.png" referrerpolicy="no-referrer"></p><p><span>																										</span><strong><span>Figure 2: Life Cycle of Intent</span></strong></p><h2 id='2-send-intent-send-quote'><span>2. Send Intent (Send Quote)</span></h2><p><span>Let&#39;s continue with how and where an intent gets created and see what arguments an intent in the current SYMM version 0.8.0 has.</span>
+<span>Please note that intents could be optimized to offer other products like Options, Expiring Swaps etc. (planned for SYMM v1.0 and upwards)</span>
+<span>In the following table, we describe each field of a intent that is provided by a user during their request for a intent.</span></p><p><strong><span>Table 1: Structure of an Intent</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>Field</span></th><th><span>Description</span></th></tr></thead><tbody><tr><td><span>partyA</span></td><td><span>The address of the user who made the request</span></td></tr><tr><td><span>quoteId</span></td><td><span>The unique identifier of the quote, which must be referenced in all further requests</span></td></tr><tr><td><span>partyBsWhiteList</span></td><td><span>The whitelist of the hedgers who are allowed to take action upon this intent. If it is empty, it means that all hedgers are allowed</span></td></tr><tr><td><span>symbolId</span></td><td><span>The symbol identifier of the symbol that the user has sent an intent for</span></td></tr><tr><td><span>positionType</span></td><td><span>The position type: LONG or SHORT (It would actually be 0 and 1 in the data)</span></td></tr><tr><td><span>orderType</span></td><td><span>The order type: Limit or Market (It would actually be 0 and 1 in the data)</span></td></tr><tr><td><span>price</span></td><td><span>The price that the user has requested</span></td></tr><tr><td><span>quantity</span></td><td><span>The quantity of the requested position</span></td></tr><tr><td><span>cva</span></td><td><span>In case of liquidation, this is a penalty that the liquidated side of the trade must pay to the other side</span></td></tr><tr><td><span>mm</span></td><td><span>The maintenance margin of this intent</span></td></tr><tr><td><span>lf</span></td><td><span>The liquidation fee which is going to be paid to the liquidator</span></td></tr><tr><td><span>deadline</span></td><td><span>Specifies the period in which hedger is allowed to open this position</span></td></tr></tbody></table></figure><p>&nbsp;</p><h3 id='21-limit-request'><span>2.1. Limit request</span></h3><p><span>The diagram below provides a detailed visualization of the potential steps a hedger might undertake upon receiving notification of a Limit request dispatched by PartyA.</span></p><p><img src="./pngs/SendQuote.drawio.png" referrerpolicy="no-referrer"></p><p><span>																		</span><span>     </span><span>		</span><span>    </span><strong><span>Figure 3: hedger Actions after SendQuoteLimit</span></strong></p><p><span>Upon seeing a request made by PartyA, hedgers should first check if they are whitelisted, meaning the user whitelisted the hedgers address as intent parameter &amp; they are therefore allowed to act upon the request. After this, there&#39;s a race among hedgers to be the first to lock(claim) the Intent. The hedger who locks the intent first will have the opportunity to open the position. Thus, the hedger should to review the intent to ensure it aligns with their policies and is &quot;interesting&quot; enough to be opened, this is an additional security measure no onchain derivatives plattform in crypto can offer market makers. </span>
+<span>If the intent is interesting and matches hedger policies, and they have sufficient allocated balance with the corresponding PartyA, they should immediately lock it by calling the &quot;lockQuote&quot; function. </span></p><p><span>If they lack the necessary allocated balance, they should call the &quot;AllocateAndLock&quot; function to promptly execute both actions in a single transaction. Subsequently, the hedger can hedge the position with a broker, any OTC desk or exchange and then use the &quot;openPosition&quot; function or simply wait until the price reaches the desired level before calling &quot;openPosition&quot;. The following code snippet are example of call AllocateAndLock, Lock function using python web3 library. </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">web3</span> <span class="cm-keyword">import</span> <span class="cm-variable">Web3</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">rpc</span> <span class="cm-operator">=</span> <span class="cm-string">''</span> <span class="cm-comment"># a rpc for sending transaction </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">http_provider</span> <span class="cm-operator">=</span> <span class="cm-variable">Web3</span>(<span class="cm-variable">Web3</span>.<span class="cm-property">HTTPProvider</span>(<span class="cm-variable">rpc</span>))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">public_key</span> <span class="cm-operator">=</span> <span class="cm-string">''</span> <span class="cm-comment"># hedger public key </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">private_key</span> <span class="cm-operator">=</span> <span class="cm-string">''</span> <span class="cm-comment"># hedger private key</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">contract_address</span> <span class="cm-operator">=</span> <span class="cm-string">''</span> <span class="cm-comment"># contract address</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">abi</span> <span class="cm-operator">=</span> <span class="cm-string">''</span> <span class="cm-comment"># SYMMIO contract ABI</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">contract</span> <span class="cm-operator">=</span> <span class="cm-variable">http_provider</span>.<span class="cm-property">eth</span>.<span class="cm-property">contract</span>(<span class="cm-variable">contract_address</span>, <span class="cm-variable">abi</span><span class="cm-operator">=</span><span class="cm-variable">abi</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">inp</span> <span class="cm-operator">=</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">'from'</span>: <span class="cm-variable">public_key</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">'nonce'</span>: <span class="cm-variable">provider</span>.<span class="cm-property">eth</span>.<span class="cm-property">get_transaction_count</span>(<span class="cm-variable">public_key</span>),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">'gas'</span>: <span class="cm-variable">GasLimit</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">'chainId'</span>: <span class="cm-variable">provider</span>.<span class="cm-property">eth</span>.<span class="cm-property">chain_id</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">'gasPrice'</span>:<span class="cm-builtin">int</span>(<span class="cm-variable">provider</span>.<span class="cm-property">eth</span>.<span class="cm-property">gas_price</span> <span class="cm-operator">*</span> <span class="cm-number">2</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">raw_transaction</span> <span class="cm-operator">=</span> <span class="cm-variable">contract</span>.<span class="cm-property">functions</span>.<span class="cm-property">allocateAndLockQuote</span>(<span class="cm-variable">quote_id</span>, <span class="cm-builtin">int</span>(<span class="cm-variable">amount</span>), <span class="cm-variable">hedger_upnl_signature</span>.<span class="cm-property">to_tuple</span>())</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">built_transaction</span> <span class="cm-operator">=</span> <span class="cm-variable">raw_transaction</span>.<span class="cm-property">buildTransaction</span>(<span class="cm-variable">inp</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">signed_transaction</span> <span class="cm-operator">=</span> <span class="cm-variable">w3</span>.<span class="cm-property">eth</span>.<span class="cm-property">account</span>.<span class="cm-property">sign_transaction</span>(<span class="cm-variable">built_transaction</span>, <span class="cm-variable">private_key</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tr_hash</span> <span class="cm-operator">=</span> <span class="cm-variable">w3</span>.<span class="cm-property">eth</span>.<span class="cm-property">send_raw_transaction</span>(<span class="cm-variable">signed_transaction</span>.<span class="cm-property">rawTransaction</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 438px;"></div><div class="CodeMirror-gutters" style="display: none; height: 438px;"></div></div></div></pre><p>&nbsp;</p><h3 id='22-market-request'><span>2.2. Market request</span></h3><p><span>The diagram below shows a hedger&#39;s actions after spotting a market position</span></p><p><img src="./pngs/SendQuoteMarket.drawio.png" referrerpolicy="no-referrer"></p><p><span>																					</span><strong><span>Figure 4: hedger action after send Intent(market)</span></strong><span> </span></p><p><span>Market requests are similar to Limit ones. However, there are two differences in the actions taken by the hedger for this type of Intent. Firstly, hedgers must check the deadline of the Intent to determine if there is enough time to open a hedging position. Secondly, they can call &quot;LockAndOpen&quot; and &quot;AllocateLockAndOpen&quot; instead of &quot;Lock&quot; and &quot;AllocateAndLock&quot;. Sample codes for LockAndOpen and AllocateLockAndOpen are similar to AllocateAndLock the only difference is how to create the raw transaction the following code snippet is a sample for this purpose: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">raw_transaction</span> <span class="cm-operator">=</span> <span class="cm-variable">contract</span>.<span class="cm-property">functions</span>.<span class="cm-property">allocateAndLockAndOpenQuote</span>(</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  <span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">quote_id</span>, <span class="cm-variable">allocate_amount</span>, <span class="cm-variable">filled_amount</span>, <span class="cm-variable">open_price</span>, <span class="cm-variable">hedger_upnl_signature</span>.<span class="cm-property">to_tuple</span>(), <span class="cm-variable">parties_upnl_price_signature</span>.<span class="cm-property">to_tuple</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ) </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">raw_transaction</span> <span class="cm-operator">=</span> <span class="cm-variable">contract</span>.<span class="cm-property">functions</span>.<span class="cm-property">allocateAndLockQuote</span>(<span class="cm-variable">quote_id</span>, <span class="cm-builtin">int</span>(<span class="cm-variable">amount</span> <span class="cm-operator">*</span> <span class="cm-variable">Scale</span>), <span class="cm-variable">hedger_upnl_signature</span>.<span class="cm-property">to_tuple</span>())</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 115px;"></div><div class="CodeMirror-gutters" style="display: none; height: 115px;"></div></div></div></pre><p><span>The usage of Lock&amp;Open and Allocate&amp;Lock&amp;Open techniques is driven by the users&#39; expectations of quick response times for market orders. However, it is crucial for the hedger to acknowledge the possibility of another hedger locking the same quote during the delay between placing the order with the broker and calling lock&amp;Open. This could result in the hedger being unable to proceed with their intended action, leading to potential losses. To mitigate this risk, the hedger can adopt a strategy similar to limit orders on market orders, where quotes are locked before being opened on both broker and contract. It&#39;s important to note that this approach sacrifices response time and user experience, which may result in decreased interest in working with this hedger from users.</span></p><h3 id='23-opening-the-position'><span>2.3. Opening the position</span></h3><p><span>After the steps mentioned, the hedger should call the &#39;openPosition&#39; function with the specified parameters:</span></p><ol start='' ><li><p><span>quoteId: The ID of the pending Intent that the hedger wants to fill.</span></p></li><li><p><span>fillAmount: The hedger has the option to open only a fraction of the specified Intent amount. Whatever quantity remains unfilled will be reposted as a new intent in the system.</span></p></li><li><p><span>openedPrice: The average fill price for the Intent which should not exceed the price specified by the user. The Unrealized Profit and Loss (UPNL) are determined based on this price.</span></p></li><li><p><span>Oracle Signature for Both Parties&#39; UPNL: This signature is essential to evaluate the solvency of both parties after contract execution. The contract strictly forbids hedgers from initiating a position if it would lead to the liquidation of either party. Consequently, hedgers must carefully track the solvency ratio of parties with whom they have pending positions. If a pending inent appears to be no longer economically sustainable for any party, they should immediately cease the related processes to avoid further losses.</span></p><p><span>open position code example: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">raw_transaction</span> <span class="cm-operator">=</span> <span class="cm-variable">contract</span>.<span class="cm-property">functions</span>.<span class="cm-property">openPosition</span>(</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">quote_id</span>, <span class="cm-builtin">int</span>(<span class="cm-variable">filled_amount</span>), <span class="cm-builtin">int</span>(<span class="cm-variable">open_price</span>), <span class="cm-variable">parties_upnl_price_signature</span>.<span class="cm-property">to_tuple</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  )</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p>&nbsp;</p></li></ol><h3 id='24-expiration-of-an-intent-before-being-claimed-and-executed-and-becoming-a-position'><span>2.4. Expiration of an intent before being claimed and executed and becoming a position</span></h3><p><span>An intent can become expired or cancelled before turning into a position.</span></p><h4 id='241-expiration'><span>2.4.1. Expiration</span></h4><p><span>Each intent has an expiration time assigned. For limit orders, the expiration time is automatically set to infinite during payload creation in the front-end (good practice for frontends). If the hedger fails to open a position within the specified time frame, they will no longer be able to open it, and a third party or partyA may choose to let the intent expire. If such a case happened the hedger should cancel its corresponding hedging position on the broker side to avoid being directionally exposed.</span></p><h4 id='242-cancellation'><span>2.4.2. Cancellation</span></h4><p><span>If PartyA decides to cancel a pending intent that is not locked(claimed) by any hedger, the intent will be immediately canceled. However, if PartyA chooses to cancel an already locked intent, the corresponding hedger is given a specific period, known as the &quot;forced cancellation cooldown.&quot; During this time, the hedger must either accept the cancellation request or proceed with executing the intent, converting it into a position. The diagram below outlines the actions a hedger should take upon receiving a cancellation request for a previously locked intent.</span></p><p><img src="./pngs/CancelIntent.drawio.png" referrerpolicy="no-referrer"></p><p><span>																	</span><strong><span>Figure 5: Different Actions Taken by the Hedger for Canceling an Intent</span></strong></p><p><span>accept cancel request: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">raw_transaction</span> <span class="cm-operator">=</span> <span class="cm-variable">contract</span>.<span class="cm-property">functions</span>.<span class="cm-property">acceptCancelRequest</span>(<span class="cm-variable">quote_id</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p>&nbsp;</p><h4 id='243-forced-cancellation-of-intent'><span>2.4.3. Forced Cancellation of Intent</span></h4><p><span>If the hedger doesn&#39;t respond to a cancellation request for an intent, either Party A or any third party can forcefully cancel the intent after the &quot;forced cancellation cooldown&quot; period expires. Should this occur, the hedger must cancel the corresponding position on the broker side.</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">raw_transaction = contract.functions.forceCancelQuote(quote_id)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p>&nbsp;</p><h2 id='3-closing-the-position'><span>3 Closing the position</span></h2><p><span>This section explains the different ways in which users can close a position and the steps required for hedgers to respond to them respectively</span></p><h3 id='31-limit-close-request'><span>3.1. Limit close request</span></h3><p><span>Figure 5 depicts a flowchart detailing the sequential actions required by a hedger upon receiving a limit close request from Party A.</span></p><p><img src="./pngs/CloseLimit.drawio.png" referrerpolicy="no-referrer"></p><p><span>																			</span><strong><span>Figure 6: Hedger Action on Party A&#39;s Limit Close Request</span></strong></p><p><span>Upon receiving a request from Party A to close a position at a limit, the corresponding hedger should either submit this request to a broker or continuously monitor the price. When the price reaches the desired level or the close request from the broker&#39;s side is fulfilled, the hedger should proceed with the closure. It&#39;s vital to note that if the hedger fails to fulfill the close request after the price hits the specified level, the position may be force-closed.</span></p><h4 id='311-force-close'><span>3.1.1. Force Close</span></h4><p><span>To prevent Party B from neglecting to fulfill limit close requests, the SYMMIO contract has integrated the Force Close function. When the price of a limit close request is met, Party B is given a specific period (Force Close Cooldown) to act on the close request. If they don&#39;t, a third party will initiate a forced closure. As a result, the hedger will face a penalty, payable to the party that triggers the force close. In such scenarios, if hedging activities are in place, Party B may close the corresponding position on the broker side.</span></p><h3 id='32-market-close-request'><span>3.2. Market close request</span></h3><p><span>Market close requests operate in a manner similar to market intent requests, given their specific time frame leading up to expiration, with the requested price determined by the prevailing market price. Figure 6 depicts the procedures a hedger should adhere to when handling a market request for closure.</span></p><p><img src="./pngs/CloseRequestMarket.drawio.png" referrerpolicy="no-referrer"></p><p><span>																			</span><strong><span>Figure 7: Hedger Action During a Filled Close Request Market</span></strong></p><h3 id='33-filling-the-close-request'><span>3.3. Filling the close request</span></h3><p><span>After the steps mentioned, the hedger should call the &#39;fillCloseRequest&#39; function with the specified parameters:</span></p><ol start='' ><li><p><span>quoteId: The unique identifier of the respective position.</span></p></li><li><p><span>fillAmount: The hedger can fill the close request in multiple steps, each with a fraction of the user&#39;s requested amount.</span></p></li><li><p><span>closedPrice: The average closing price of the position (cannot be lower than the user&#39;s requested price).</span></p></li><li><p><span>Oracle Signature for Both Parties&#39; UPNL: This UPNL signature represents both parties and is used for solvency checks on the contract side. A hedger cannot close a position if such closure would lead to either party facing liquidation. Although such situations, indicative of a problem with the liquidator, are rare, specific actions are in place. If Party A has a solvency issue, the hedger is permitted to liquidate the user. Conversely, if the solvency challenge is on the hedger&#39;s side, they must deposit additional funds into their account to avert liquidation.</span></p><p><span>sample code for fill close request: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">raw_transaction</span> <span class="cm-operator">=</span> <span class="cm-variable">contract</span>.<span class="cm-property">functions</span>.<span class="cm-property">fillCloseRequest</span>(</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">quote_id</span>, <span class="cm-builtin">int</span>(<span class="cm-variable">filled_amount</span>), <span class="cm-builtin">int</span>(<span class="cm-variable">close_price</span>), <span class="cm-variable">parties_upnl_price_signature</span>.<span class="cm-property">to_tuple</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  )</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p>&nbsp;</p></li></ol><h3 id='34-death-of-a-close-request'><span>3.4. Death of a close request</span></h3><p><span>A close request can get expired or canceled before actually getting filled by the hedger.</span></p><h4 id='341-expiration'><span>3.4.1. Expiration</span></h4><p><span>Close requests come with a designated time frame for fulfillment, as specified by the &#39;deadline&#39; parameter. If not filled within this period, the close request becomes unfulfillable, and the position&#39;s status reverts to “open”.</span></p><h4 id='342-cancellation'><span>3.4.2. Cancellation</span></h4><p><span>If PartyA changes their mind after submitting a close request, they are allowed to cancel it by initiating a &quot;cancel close request&quot; action. The hedger must respond within a certain timeframe by either fulfilling the close request or accepting the cancellation. Figure 7 illustrates the potential actions taken by the hedger upon receiving a cancel close request.</span></p><p><img src="./pngs/CancelClose.drawio.png" referrerpolicy="no-referrer"></p><p><span>																	</span><strong><span>Figure 8: Actions taken by the hedger in response to a cancel close request</span></strong></p><p><span>Accept cancel close code example:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">raw_transaction</span> <span class="cm-operator">=</span> <span class="cm-variable">contract</span>.<span class="cm-property">functions</span>.<span class="cm-property">acceptCancelCloseRequest</span>(<span class="cm-variable">quote_id</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p>&nbsp;</p><h4 id='343-force-cancel-close-request'><span>3.4.3. Force Cancel Close Request</span></h4><p><span>If the hedger fails to respond to the cancel close request within the force cancel close cool-down period, any third party is authorized to perform a force cancel close. In this scenario, the position status reverts back to &quot;open&quot; and the hedger must cancel and undo their close request on the broker&#39;s platform.</span></p><h2 id='4-parties-liquidation'><span>4. Parties&#39; Liquidation</span></h2><p><span>If any party is liquidated during the position, the position is no longer valid, and the hedger has the option to close and cancel the corresponding hedger&#39;s close request on the broker side.</span></p><h2 id='5-summary-of-different-type-of-requests-made-by-partya'><span>5. Summary of different Type of Requests made by PartyA</span></h2><p><span>Table 2 provides a comprehensive summary of various request types available for PartyA within the system and delineates how hedgers should  address them.</span></p><p><strong><span>Table 2: Description of different requests of PartyA</span></strong></p><figure class='table-figure'><table><thead><tr><th style='text-align:center;' ><span>Request Type</span></th><th style='text-align:left;' ><span>Summary</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Send Quote (limit)</span></td><td style='text-align:left;' ><span>When PartyA wishes to make a limit trade on a symbol, they can make a  request for a Intent by calling sendQuote and providing the required  information such as price, quantity, MM, CVA, LF.</span></td></tr><tr><td style='text-align:center;' ><span>Send Quote (Market)</span></td><td style='text-align:left;' ><span>Similar to limit orders, but in this type of trade, the front-end  requests the price with a slippage based on the current market price and a limited expiration time. This gives the hedger a specific deadline to fill such requests. Additionally, partial fills are not allowed in this type of request.</span></td></tr><tr><td style='text-align:center;' ><span>Request To Cancel</span></td><td style='text-align:left;' ><span>This type of request may occur when PartyA wants to cancel their  unfilled quotes. If no hedger has locked their request, the request to  cancel will be immediately accepted. However, if their quote has been  locked by a hedger, the hedger has a certain amount of time (force  Cancel cool down) to either fill their quotes or accept their cancel  requests.</span></td></tr><tr><td style='text-align:center;' ><span>Request To Close (limit)</span></td><td style='text-align:left;' ><span>When a user wants to close their request, they must make a close request and provide information such as the quantity they want to close and the price.</span></td></tr><tr><td style='text-align:center;' ><span>Request To Close(Market)</span></td><td style='text-align:left;' ><span>Similar to the market request for a quote, this type of request for closure is the same as requesting a close, but with a price that  includes slippage and an expiration time. In this type of request,  requesting a market close for a part of a quote and partial filling the  close request is not meaningful.</span></td></tr><tr><td style='text-align:center;' ><span>Request To Cancel Close</span></td><td style='text-align:left;' ><span>After each PartyA makes a request to close, they are allowed to cancel  their close request before the hedger fills it. Similar to the request  to cancel, the hedger has a certain amount of time to respond to such  requests, or the cancel close requests will be forced.</span></td></tr></tbody></table></figure><p><span>In addition, there are various other types of events that the hedger must be mindful of, as they can have consequences on their business. Table 3 summarizes these additional events.</span></p><p><strong><span>Table 3: additional type of events</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>Event</span></th><th><span>Functor</span></th><th><span>Description</span></th></tr></thead><tbody><tr><td><span>Force Cancel</span></td><td><span>Any One</span></td><td><span>If the hedger fails to respond to the user&#39;s cancel request within a  certain time frame, any authorized individual is allowed to call for a  force cancel, rendering the quote unavailable thereafter.</span></td></tr><tr><td><span>Force Cancel Close</span></td><td><span>Any One</span></td><td><span>Similar to force cancel, but applicable for close requests.</span></td></tr><tr><td><span>Force Close</span></td><td><span>Any One</span></td><td><span>If the hedger does not fulfill the user&#39;s close request even after the  price has been reached, any authorized individual can force close the  request by providing a signature confirming the event.</span></td></tr><tr><td><span>Expire Quote</span></td><td><span>Any One</span></td><td><span>If the hedger does not fill the market request, it will expire.</span></td></tr><tr><td><span>Liquidate User</span></td><td><span>Liquidator</span></td><td><span>If the hedger or user&#39;s allocated balances are unable to cover their  Unrealized Profit and Loss (UPNL), they will be subject to liquidation.</span></td></tr><tr><td><span>Liquidate Position</span></td><td><span>Liquidator</span></td><td><span>After liquidating the user, the liquidator will proceed to liquidate  each position and facilitate a settlement between the parties involved.</span></td></tr></tbody></table></figure><h2 id='6-fee-structures-in-symmio'><strong><span>6. Fee Structures in SYMMIO</span></strong></h2><p><span>The SYMMIO platform incorporates multiple fees to manage and sustain its operations. Developers and organizations interfacing with SYMMIO should familiarize themselves with these fees to ensure a seamless trading experience:</span></p><ol start='' ><li><p><strong><span>Platform Fee</span></strong><span>: This fee is charged to PartyA when a position is initiated on the platform. It contributes to the upkeep and management of the SYMMIO platform.</span></p></li><li><p><strong><span>Liquidator Fee (LF)</span></strong><span>: The LF is a specific charge designed to compensate for the risks associated with liquidation processes on the platform. </span></p></li><li><p><strong><span>Counterparty Valuation Adjustment (CVA)</span></strong><span>: This is a penalty levied during the liquidation phase. The party subjected to liquidation is required to remit this fee to their counterparty as compensation for potential losses or risks incurred.</span></p></li><li><p><strong><span>Funding Rate:</span></strong><span> In the context of hedging, it is widely acknowledged that the majority  of hedgers opt to hedge their positions with a broker. Given that  brokers may impose funding rates, during the intent request phase, both  the hedger and PartyA will negotiate and concur on a maximum funding  rate. The contract administrator determines the period for each symbol.  When this designated period arrives, the hedger may either request or  disburse the funding rate.</span></p></li><li><p><strong><span>Spread Considerations</span></strong><span>: In the SYMMIO ecosystem, hedgers may occasionally employ strategies that prevent them from placing  orders with their broker at the exact price stipulated by PartyA. This  discrepancy can manifest as a wider spread in SYMMIO&#39;s order book  compared to the hedger&#39;s broker orders. It&#39;s imperative for hedgers to  understand that Muon signatures do not consider these spreads. An  exaggerated spread could deter user trading interest, increase the  chances of forced position closures, and elevate potential loss risks.  To maintain platform integrity and user trust, hedgers are recommended  to ensure their spread fees remain within a justifiable bracket.</span></p></li></ol><h2 id='7-symmio-networks-solvency-and-settlement-mechanism'><span>7. </span><strong><span>SYMMIO Network&#39;s Solvency and Settlement Mechanism</span></strong></h2><p><span>In the current iteration of the SYMMIO network, the system prohibits parties from initiating any actions if the solvency of either party is under scrutiny. This measure ensures the integrity and reliability of transactions within the network.</span></p><p><span>To achieve seamless settlements and maintain transparency, we rely on a trustworthy third party to procure signatures such as UPNLs and Prices. Detailed specifications of these signatures can be found in the contract&#39;s Application Binary Interface (ABI).</span></p><p><span>For a comprehensive understanding of the underlying mechanisms and operations of the Muon network, which forms an integral part of our system, please refer to the official documentation: </span><a href='https://docs.muon.net/muon-network/'><span>Muon Network Documentation</span></a><span>.</span></p><h2 id='8-off-chain-communication-between-hedger-and-party-a'><span>8. Off-Chain Communication between Hedger and Party A</span></h2><p><span>To optimize user experience, facilitate experimentation, and aid users in identifying the most suitable hedger for their needs, SYMMIO provides a suite of off-chain information. This information is primarily classified into two categories: APIs and Web-Sockets.</span></p><p><span>It&#39;s important to emphasize that several of these APIs aim to reduce user request failures. They are often subject to the hedger&#39;s policies. For example, if a hedger doesn&#39;t mandate a whitelist, then the related APIs become superfluous.</span></p><ol start='' ><li><p><span>8.1. List of APIs</span></p><p><span>This section delves into each API that a hedger might offer to the front-end. It covers the API&#39;s description, URL, input parameters, and output structure. For an extensive examination and testing of these APIs, consult the </span><a href='https://hedger2.deus.finance/docs'><span>Test Hedger Documentation</span></a><span>.</span></p></li><li><p><strong><span>GET contract_symbols</span></strong><span> </span></p><ul><li><p><span>Out put schema: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"count"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"symbols"</span>: [</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"price_precision"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"quantity_precision"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"name"</span>: <span class="cm-string">"string"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"symbol_id"</span>: <span class="cm-string">"string"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"is_valid"</span>: <span class="cm-variable">bool</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  ]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 277px;"></div><div class="CodeMirror-gutters" style="display: none; height: 277px;"></div></div></div></pre></li></ul></li></ol><ul><li><p><strong><span>Description:</span></strong><span> Retrieves a list of available symbols from the hedger with details like price precision, quantity precision,  symbol name and ID, and the symbol&#39;s validity status.</span></p></li></ul><ol start='2' ><li><ul><li><h4 id='2-get-add-sub-address-in-whitelistaddressclient'><span>2. </span><strong><span>GET add-sub-address-in-whitelist/{address}/{client}</span></strong></h4><ul><li><p><span>Input Parameters:</span></p><ul><li><p><code>address</code><span>: User&#39;s sub-address.</span></p></li><li><p><code>client</code><span>: Given potential collaboration with multiple front-ends and contract versions of SYMMIO, this specifies the multi-account contract to be referenced.</span></p></li></ul></li><li><p><strong><span>Output:</span></strong><span> A 200 HTTP status code denotes successful whitelisting.</span></p></li></ul></li></ul></li><li><p><strong><span>GET open-interest</span></strong></p><ul><li><p><span>out-put schema: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"total_cap"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"used"</span>: <span class="cm-variable">int</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 92px;"></div><div class="CodeMirror-gutters" style="display: none; height: 92px;"></div></div></div></pre></li><li><p><span>Description: This API discloses the cumulative available notional  capacity of the hedger (summing up the capacities across all symbols)  alongside the used capacity.</span></p></li></ul></li><li><p><strong><span>POST position-state/{start}/{size}</span></strong></p><ul><li><p><span>Input Parameters:</span></p><ul><li><p><span>Query Parameters: </span><code>start</code><span> and </span><code>size</code><span> are utilized for pagination.</span></p></li><li><p><span>Request data:</span></p></li></ul></li></ul></li></ol><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-string">"address"</span>: <span class="cm-string">"string"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-string">"quote_id"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-string">"symbols"</span>: [</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-string">"string"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; ],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-string">"states"</span>: [</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-string">"string"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; ],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-string">"create_time_gte"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-string">"modify_time_gte"</span>: <span class="cm-variable">int</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; }</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 277px;"></div><div class="CodeMirror-gutters" style="display: none; height: 277px;"></div></div></div></pre><ul><li><p><span>Description: The position state mechanism notifies users of the reasons  for request rejections and offers insights into activities on the  hedger&#39;s end. The current version of the front-end employs this route to fetch user notifications since the user&#39;s last active session.  Comprehensive details on this mechanism will be elucidated in the  web-socket section.</span></p></li></ul><ol start='5' ><li><p><strong><span>GET notional_cap/{symbol}</span></strong></p><ul><li><p><span>Response Schema: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"total_cap"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"used"</span>: <span class="cm-variable">int</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 92px;"></div><div class="CodeMirror-gutters" style="display: none; height: 92px;"></div></div></div></pre></li><li><p><span>Description: This API reveals the total and consumed capacity of the hedger specific to a given symbol.</span></p></li></ul></li><li><p><strong><span>GET price-range/{symbol}</span></strong></p><ul><li><p><span>Response Schema: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"min_price"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"max_price"</span>: <span class="cm-variable">int</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 92px;"></div><div class="CodeMirror-gutters" style="display: none; height: 92px;"></div></div></div></pre></li><li><p><span>Description: The API delineates the range of acceptable prices, indicating the minimum and maximum for a particular symbol.</span></p></li></ul></li><li><p><strong><span>GET check_in-whitelist/{address}/{client}</span></strong></p><ul><li><p><span>Description: Determines whether a user&#39;s wallet has previously been whitelisted.</span></p></li></ul></li><li><p><strong><span>GET error_codes</span></strong></p><ul><li><p><span>Description: Fetches a correspondence between all error codes and their associated messages.</span></p></li></ul></li><li><p><strong><span>GET error_codes/{error_code}</span></strong></p><ul><li><p><span>Description: Retrieves the message corresponding to a specific error code.</span></p></li></ul></li><li><p><strong><span>GET get_locked_params/{symbol}?leverage={leverage}</span></strong></p><ul><li><p><span>Response Schema: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"cva"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"mm"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"lf"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"leverage"</span>: <span class="cm-variable">int</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 138px;"></div><div class="CodeMirror-gutters" style="display: none; height: 138px;"></div></div></div></pre><ul><li><p><span>Description: Hedgers have the prerogative to request varied percentages  for the CVA, MM, and LF based on different leverages. This route  elucidates these percentages.</span></p></li></ul></li></ul></li><li><p><strong><span>GET get_market_info</span></strong></p><ul><li><p><span>Response Schema: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"symbol"</span>: {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"price"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"price_change_percent"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"trade_volume"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"notional_cap"</span>: <span class="cm-variable">int</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 184px;"></div><div class="CodeMirror-gutters" style="display: none; height: 184px;"></div></div></div></pre></li><li><p><span>Description: This API is integral to the market information page of the front-end (</span><a href='https://cloverfield.exchange/markets'><span>Market Information</span></a><span>).</span></p></li></ul></li></ol><h3 id='82--list-of-web-sockets'><span>8.2.  List of Web-Sockets</span></h3><h4 id='821-notification-web-socket'><span>8.2.1. Notification Web-Socket</span></h4><p><span>Due to a delay in contracts and various events such as the filling of a position or the rejection of a request by the hedger, the SYMMIO front-end is capable of displaying these notifications to the user in real time. The following information describes the current types of notifications within the current notification system, but if any hedger requires additional types of notifications, please feel free to inquire.</span></p><p><strong><span>Table 4: Different Types of Notifications</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>Notification</span></th><th><span>State Type</span></th><th><span>Action Status</span></th><th><span>Additional Fields to be Sent</span></th></tr></thead><tbody><tr><td><span>Filling status of intent limit</span></td><td><span>report</span></td><td><span>*</span></td><td><span>filled_amount_open, quote_id, counterparty_address</span></td></tr><tr><td><span>Filling status of closing order limit</span></td><td><span>report</span></td><td><span>*</span></td><td><span>filled_amount_close, quote_id, counterparty_address</span></td></tr><tr><td><span>Notification when the hedger has viewed a request</span></td><td><span>alert</span></td><td><span>seen</span></td><td><span>last_seen_action, quote_id, counterparty_address</span></td></tr><tr><td><span>Notification when the hedger successfully responds to a request from PartyA</span></td><td><span>alert</span></td><td><span>success</span></td><td><span>last_seen_action, quote_id, counterparty_address</span></td></tr><tr><td><span>Notification when the hedger rejects a request from PartyA</span></td><td><span>alert</span></td><td><span>failed</span></td><td><span>error_code, last_seen_action, quote_id, counterparty_address</span></td></tr></tbody></table></figure><h4 id='822--upnl-web-socket'><span>8.2.2.  Upnl Web-Socket</span></h4><p><span>This web-socket caters to user experience, displaying Upnl and related information. Note that this data serves solely for frontend representation and holds no business significance.</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"upnl"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"notional"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"timestamp"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"available_balance"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"allocated_balance"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"cva"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"mm"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"lf"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"total_locked"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"pending_cva"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"pending_mm"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"pending_lf"</span>: <span class="cm-variable">int</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"total_pending_locked"</span>: <span class="cm-variable">int</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 346px;"></div><div class="CodeMirror-gutters" style="display: none; height: 346px;"></div></div></div></pre><p>&nbsp;</p><h2 id='8-recommended-architecture-for-the-hedger'><span>8. Recommended Architecture for the Hedger</span></h2><p><span>In this section, we present a proposed architecture tailored for hedger  services and components. This architecture is designed for hedgers  intending to hedge their positions with a broker. Each micro-service in  this architecture performs a specific function. The diagram below  illustrates the architecture.</span></p><p><img src="./pngs/hedger_arch.drawio.png" referrerpolicy="no-referrer"></p><p><span>																				</span><strong><span>Figure 9: Recommended Architecture for the Hedger</span></strong></p><p><span>Each circle in the diagram represents a distinct micro-service within the hedger system. The micro-services within containers act as backup services for one another. It is imperative to ensure maximum isolation between these micro-services, facilitating communication via message brokers like RabbitMQ and Redis. Employing a micro-service architecture offers a plethora of advantages. For instance, any malfunction in one service will minimally impact others. Moreover, modifications to any individual module will not affect others, provided there&#39;s no change in its input or output specifications. It&#39;s strongly advised to utilize separate Docker containers for each micro-service to enhance isolation and streamline resource management. This modular approach promotes superior scalability and fault tolerance. Each micro-service can scale autonomously, and a failure in one won&#39;t compromise the others. In essence, a micro-service architecture offers numerous advantages, such as enhanced isolation, scalability, fault tolerance, and efficient resource management.</span></p><p><span>A brief overview of each micro-service&#39;s function is as follows:</span></p><ul><li><p><strong><span>Hedger Web-Server</span></strong><span>: This micro-service offers the APIs and web-sockets essential for the front-end, as discussed in the preceding section. It extracts data from the Hedger database, processes it, and transmits it to the front-end.</span></p></li><li><p><strong><span>SYMMIO Blockchain Input Module</span></strong><span>: This module&#39;s duty is to capture events from the blockchain. Given the critical nature of this information for the hedger, three separate micro-services, performing identical functions, have been established. This redundancy ensures that if one service falters, the others remain operational. These micro-services function as event-listeners, procuring a real-time stream of blockchain events via a websocket RPC. The subgraph fetcher extracts data from the subgraph, while the event poller captures events using an HTTP RPC.</span></p></li><li><p><strong><span>Web3 Agent</span></strong><span>: This module facilitates transactions and view calls required by other micro-services.</span></p></li><li><p><strong><span>Balance Manager</span></strong><span>: This component manages the allocation of the hedger&#39;s funds across its sub-accounts to virtually eliminate liquidation risks. For instance, if the hedger&#39;s health ratio is disparate across sub-accounts, this module will reallocate funds accordingly to maintain equilibrium.</span></p></li><li><p><strong><span>Position Manager</span></strong><span>: Serving as the hedger&#39;s core service, the Position Manager handles pivotal actions and decisions. It processes events fetched from the blockchain and the status of pending broker positions. This module evaluates hedger policies and executes appropriate actions such as initiating or terminating positions on either the broker or contract side. Given its significance, it&#39;s advisable to deploy multiple instances of this service.</span></p></li><li><p><strong><span>Broker Order Monitoring</span></strong><span>: This module oversees the status of limit orders with the broker and notifies the Position Manager upon order execution. Two micro-services, one relying on a WebSocket and the other on an API call, fetch these orders to ensure uninterrupted hedger availability.</span></p></li><li><p><strong><span>Broker Order Maker</span></strong><span>: This module oversees necessary updates on the broker side, encompassing order creation, cancellation, and termination.</span></p></li><li><p><strong><span>Position Validator</span></strong><span>: Every position is reflected across three platforms: the broker, the blockchain, and the hedger database. This module&#39;s role is to ensure uniformity across these platforms and alert developers in case of discrepancies.</span></p></li><li><p><strong><span>Monitoring and Developer Alerts</span></strong><span>: This system monitors all micro-services, raising alerts to developers if any anomalies arise.</span></p></li></ul></div></div>
+</body>
+</html>
