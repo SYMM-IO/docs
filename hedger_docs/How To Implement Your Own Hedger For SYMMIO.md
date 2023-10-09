@@ -546,7 +546,7 @@ In this section, we present a proposed architecture tailored for hedger  service
 
 ![](./pngs/hedger_arch.drawio.png)
 
-​																				**Figure 9: Recommended Architecture for the Hedger** <br>
+​**Figure 9: Recommended Architecture for the Hedger** <br>
 **Green objects** codes will be open sourced and provided by the SYMMIO team <br>
 **Red objects** should be developed by the MarketMaker. <br>
 **Purple objects** are optional. <br>
