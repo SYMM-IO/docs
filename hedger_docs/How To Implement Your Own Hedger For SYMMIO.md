@@ -547,6 +547,9 @@ In this section, we present a proposed architecture tailored for hedger  service
 ![](./pngs/hedger_arch.drawio.png)
 
 ​																				**Figure 9: Recommended Architecture for the Hedger**
+Green objects will be open sourced and provided by the SYMMIO team
+Red objects should be developed by the MarketMaker.
+Purple objects are optional.
 
 Each circle in the diagram represents a distinct micro-service within the hedger system. The micro-services within containers act as backup services for one another. It is imperative to ensure maximum isolation between these micro-services, facilitating communication via message brokers like RabbitMQ and Redis. Employing a micro-service architecture offers a plethora of advantages. For instance, any malfunction in one service will minimally impact others. Moreover, modifications to any individual module will not affect others, provided there's no change in its input or output specifications. It's strongly advised to utilize separate Docker containers for each micro-service to enhance isolation and streamline resource management. This modular approach promotes superior scalability and fault tolerance. Each micro-service can scale autonomously, and a failure in one won't compromise the others. In essence, a micro-service architecture offers numerous advantages, such as enhanced isolation, scalability, fault tolerance, and efficient resource management.
 
